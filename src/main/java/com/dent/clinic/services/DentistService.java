@@ -30,7 +30,6 @@ public class DentistService {
         dentist.setName(dentistUpdated.getName());
         dentist.setLastName(dentistUpdated.getLastName());
         dentist.setLicense(dentistUpdated.getLicense());
-        dentist.setMeeting(dentistUpdated.getMeeting()); //Está bien updatear una lista? no sería una buena práctica dejarla tal como estaba y modificar la lista desde "meetService"?
 
         return dentistRepository.save(dentist);
     }

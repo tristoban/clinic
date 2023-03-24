@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,7 +28,8 @@ public class Patient {
     private LocalDate entryDate;
     @Embedded
     private Address address;
-
+    @OneToMany(mappedBy ="patient")
+    private List<Meet> meeting;
 
 
 }
