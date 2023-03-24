@@ -49,7 +49,7 @@ public class PatientService {
         return patientRepository.save(patient);
     }
 
-    public void deletePatient(Long id){
+    public void deletePatient(Long id){ //eliminado por id
         if (!patientRepository.existsById(id)){
             throw new NotFoundException("Patient not found by ID: " + id);
         }
