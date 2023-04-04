@@ -1,5 +1,9 @@
 package com.dent.clinic.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +12,9 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,6 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "patients")
+
 public class Patient {
 
     @Id
@@ -28,8 +35,9 @@ public class Patient {
     private LocalDate entryDate;
     @Embedded
     private Address address;
-    @OneToMany(mappedBy ="patient")
-    private List<Meet> meeting;
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<Meet> meets = new HashSet<>();
 
 
 }
