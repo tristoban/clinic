@@ -48,7 +48,6 @@ public class MeetService {
         return meetRepository.save(meet);
     }
 
-
     public void deleteMeet(Long id){
         if (!meetRepository.existsById(id)){
             throw new NotFoundException("Meet not found with ID: " + id);

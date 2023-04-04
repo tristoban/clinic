@@ -4,6 +4,7 @@ package com.dent.clinic.services;
 import com.dent.clinic.entities.Patient;
 import com.dent.clinic.exceptions.NotFoundException;
 import com.dent.clinic.repositories.PatientRepository;
+import org.hibernate.annotations.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,11 +50,11 @@ public class PatientService {
         return patientRepository.save(patient);
     }
 
-    public void deletePatient(Long id){ //eliminado por id
-        if (!patientRepository.existsById(id)){
-            throw new NotFoundException("Patient not found by ID: " + id);
-        }
-        patientRepository.deleteById(id);
+    public Patient deletePatient(Long id){ //eliminado por id
+        Patient patient = patientRepository.findById(id)
+                .orElseThrow(()-> new NotFoundException("Patient not found by ID: " + id));
+        patientRepository.delete(patient);
+        return patient;
     }
 
 }
