@@ -1,7 +1,7 @@
 package com.dent.clinic.entities;
 
 import com.dent.clinic.enums.AppUserRole;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

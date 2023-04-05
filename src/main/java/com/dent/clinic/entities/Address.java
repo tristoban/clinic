@@ -1,6 +1,6 @@
 package com.dent.clinic.entities;
 
-import jakarta.persistence.Embeddable;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
