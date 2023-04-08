@@ -1,18 +1,25 @@
 package com.dent.clinic.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class UserController {
 
-    @GetMapping("/")
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/home")
     public String home() {
-        return "index";
+        return "home";
     }
 
     @GetMapping("/user")
     public String user() {
+
         return "index";
     }
 
@@ -20,6 +27,19 @@ public class UserController {
     public String admin() {
         return "index";
     }
+
+    @GetMapping("/dentist")
+    public String dentist() {
+        return "dentist";
+    }
+
+    @GetMapping("/meet")
+    public String meet() {
+        return "meet";
+    }
+
+    @GetMapping("/patient")
+    public String patient() {
+        return "patient";
+    }
 }
-
-
